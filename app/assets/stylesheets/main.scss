@@ -1,0 +1,21 @@
+.main{
+  padding-left: 1em;
+}
+.tasks{
+  padding-left: 1em;
+  padding-bottom: 1em;
+}
+.field_with_errors{
+    border: 1px solid #f7bebe;
+    border-radius: 5px
+}
+
+.New{
+  background-color: #d9534f;
+}
+.In_Progress{
+  background-color: #428bca;
+}
+.Done{
+  background-color: #5cb85c;
+}
