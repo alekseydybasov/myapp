@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :projects, only: [:index, :show] do
     resources :tasks
   end
-  #namespace :admin do
-    #resources :projects, except: [:index, :show]
-  #end
+  namespace :admin do
+    resources :projects, except: [:index, :show]
+  end
 
 end
