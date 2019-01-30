@@ -1,16 +1,17 @@
 <div class="card">
-  <h2 class="card-header">Список проектов <span class="badge badge-pill badge-primary"><%= @project.count %></span></h2>
+  <h3 class="card-header">Проекты <span class="badge badge-pill badge-primary"><%= @project.count %></span></h3>
 </div>
 <% @project.each do |p| %>
 <div class="card">
   <div class="card-block main">
     <h4 class="card-title"><%= p.name %> <span class="badge badge-pill badge-primary"><%= p.tasks.count %></span></h4>
-    <small>
-      <span class="badge badge-pill badge-success"><%= p.start_date %></span> -
-      <span class="badge badge-pill badge-primary"><%= p.end_date %></span>
-    </small>
-  <p class="card-text"><%= p.summary %></p>
-  <p><%= link_to "Открыть проект", project_path(p), :class => 'btn btn-outline-primary btn-sm'%></p>
+      <small>
+        <span class="badge badge-pill badge-success"><%= p.start_date %></span> -
+        <span class="badge badge-pill badge-primary"><%= p.end_date %></span>
+      </small>
+      <p class="card-text"><%= p.summary %></p>
+      <p><%= link_to "Открыть проект", project_path(p), :class => 'btn btn-outline-primary btn-sm'%></p>
   </div>
 </div>
+
 <% end %>
