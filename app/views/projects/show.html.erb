@@ -6,7 +6,7 @@
 <p><%= @project.summary %></p>
 <hr>
 <%= link_to "Назад", projects_path, :class => 'btn btn-outline-secondary'%>
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.admin? %>
 <%= link_to "Редактировать", edit_admin_project_path(@project),
 :class => 'btn btn-outline-primary'%>
 
@@ -15,9 +15,11 @@
 
 <%= link_to "Добавить задачу",  new_project_task_path(@project),
 :class => 'btn btn-outline-success'%>
+<% else %>
+
 <% end %>
 <hr>
-<h3>Задачи к проекту:</h3>
+<h3 class="card-title">Задачи к проекту <span class="badge badge-pill badge-primary"><%= @project.tasks.count %></span></h3>
 <hr>
 <div class="row">
 <%= render @project.tasks %>

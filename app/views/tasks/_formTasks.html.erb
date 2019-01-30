@@ -4,23 +4,31 @@
         <div class="alert alert-danger"><%= msg %></div>
         <% end %>
     <% end %>
-  <p>
-  <h5>Название:</h5>
-  <%= form.text_field(:title, {:class => 'form-control'}) %>
-  </p>
-  <p>
-  <h5>Описание:</h5>
-  <%= form.text_area(:description, {:class => 'form-control'}) %>
-  </p>
-  <p>
-  <b>Исполнитель: <b>
-  <%= form.collection_select :user_id, User.order(:last_name), :id, :last_name, {include_blank: true},
-  {:class => 'form-contrl'} %>
-  </p>
-  <p>
-  <b>Статус задачи: <b>
-  <%= form.select(:status, Task::STATUSTASKS, {:class => 'form-contrl'}) %>
-  </p>
+  <div class="field form-group">
+    <span class="col-sm-2 control-label"><b>Название:<b></span> <br>
+    <div class="col-sm-10">
+      <%= form.text_field(:title, {:class => 'form-control'}) %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <span class="col-sm-2 control-label"><b>Описание:<b></span> <br>
+    <div class="col-sm-10">
+      <%= form.text_area(:description, {:class => 'form-control'}) %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <span class="col-sm-2 control-label"><b>Исполнитель:<b></span> <br>
+    <div class="col-sm-10">
+      <%= form.collection_select :user_id, User.order(:last_name), :id, :last_name, {include_blank: true},
+      {:class => 'form-contrl'} %>
+    </div>
+  </div>
+  <div class="field form-group">
+    <span class="col-sm-2 control-label"><b>Статус задачи:<b></span> <br>
+    <div class="col-sm-10">
+      <%= form.select(:status, Task::STATUSTASKS, {:class => 'form-contrl'}) %>
+    </div>
+  </div>
   <%= form.submit("Сохранить", {:class => 'btn btn-outline-success'}) %>
   <%= link_to("Назад", project_path(@project), {:class => 'btn btn-outline-secondary'}) %>
 <% end %>

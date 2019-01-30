@@ -1,9 +1,7 @@
   <div class="col-sm-6">
       <div class="card">
         <div class="card-block tasks">
-          <h3 class="card-title"><%= task.title %></h3>
-
-          <span><%= task.project.name %> </span>
+          <h3 class="card-title"><%= task.title %></h3>          
           <span class="badge badge-pill <%= task.status %>"><%= task.status %></span>
           <p class="card-text"><%= task.description %></p>
           <% if user_signed_in? && current_user.admin? %>
