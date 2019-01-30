@@ -1,0 +1,26 @@
+<%= form_for([@project, @task]) do |form| %>
+    <% if @task.errors.any? %>
+        <% @task.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger"><%= msg %></div>
+        <% end %>
+    <% end %>
+  <p>
+  <h5>Название:</h5>
+  <%= form.text_field(:title, {:class => 'form-control'}) %>
+  </p>
+  <p>
+  <h5>Описание:</h5>
+  <%= form.text_area(:description, {:class => 'form-control'}) %>
+  </p>
+  <p>
+  <b>Исполнитель: <b>
+  <%= form.collection_select :user_id, User.order(:last_name), :id, :last_name, {include_blank: true},
+  {:class => 'form-contrl'} %>
+  </p>
+  <p>
+  <b>Статус задачи: <b>
+  <%= form.select(:status, Task::STATUSTASKS, {:class => 'form-contrl'}) %>
+  </p>
+  <%= form.submit("Сохранить", {:class => 'btn btn-outline-success'}) %>
+  <%= link_to("Назад", project_path(@project), {:class => 'btn btn-outline-secondary'}) %>
+<% end %>

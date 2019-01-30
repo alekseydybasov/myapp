@@ -1,0 +1,18 @@
+
+
+<div class="card">
+  <h2 class="card-header">Список проектов</h2>
+</div>
+<% @project.each do |p| %>
+<div class="card">
+  <div class="card-block main">
+    <h3 class="card-title"><%= p.name %></h3>
+    <small>
+      <span class="badge badge-pill badge-success"><%= p.start_date %></span> -
+      <span class="badge badge-pill badge-primary"><%= p.end_date %></span>
+    </small>
+  <p class="card-text"><%= p.summary %></p>
+  <p><%= link_to "Открыть проект", project_path(p), :class => 'btn btn-outline-primary btn-sm'%></p>
+  </div>
+</div>
+<% end %>
